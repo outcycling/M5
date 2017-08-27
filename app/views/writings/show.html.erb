@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @writing.user_id %>
+</p>
+
+<p>
+  <strong>Headline:</strong>
+  <%= @writing.headline %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @writing.body %>
+</p>
+
+<%= link_to 'Edit', edit_writing_path(@writing) %> |
+<%= link_to 'Back', writings_path %>
