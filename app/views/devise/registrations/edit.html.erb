@@ -26,8 +26,32 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+<hr />
+
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true %>
+        <br /><br />
+    </div>
+
+    <div>
+        <%= f.label :birthdate %>
+        <%= f.date_select :birthdate %>
+        <br /><br />
+    </div>
+
+  <div>
+        <%= f.label :zip %>
+        <%= f.text_field :zip %>
+      <br /><br />
+    </div>
+
+
+<br />
+<hr>
+
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i><strong>(we need your current password to confirm your changes)</i></strong><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 

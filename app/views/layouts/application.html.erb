@@ -9,9 +9,49 @@
   </head>
 
   <body>
+      <div>
+          <header><h1><%= Time.now.strftime('%a, %b %d') %> 
+              
+              
+               ------- My Morning Practice</h1>
+              
+            <nav>
+              <ul>
+                  <li><%= nav_link_to "Home", '/' %></li>
+                  <li> <%= nav_link_to "About", '#' %></li>
+                  
+                  <% unless current_user %>
+                      <li><%= nav_link_to "Sign Up", '/users/sign_up' %></li>
+                      <li><%= nav_link_to "log in", new_user_session_path %></li>
+                  <% end %>
+                  
+                  <% if current_user %>
+
+                        <li><%= nav_link_to "log out", destroy_user_session_path, :method => :delete %></li>
+                        <li><%= nav_link_to 'Edit Profile',edit_user_registration_path %></li>
+                                    
+                  <li><%= nav_link_to 'Upload Photo', new_picture_path %></li>
+
+                  
+                   <% end %>
+                
+                </ul>
+              </nav>
+        
+          
+          
+          
+          
+          
+          
+          </header>
       
-         <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+      
+      
+      </div>
+      
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
       
     <%= yield %>
   </body>

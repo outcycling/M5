@@ -1,8 +1,6 @@
 
   Rails.application.routes.draw do
       
-  get 'pages/home'
-
   root 'pages#home'  
   resources :gratitudes
   resources :writings
@@ -11,6 +9,9 @@
       devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
+  get 'pages/home'
+  get '/users' => 'pages#users', as: :users
+  get 'users/:id' => 'pages#show', as: :show_user      
     end
 
 
