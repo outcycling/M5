@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Requestor:</strong>
+  <%= @manage_photo.requestor_id %>
+</p>
+
+<p>
+  <strong>Requestee:</strong>
+  <%= @manage_photo.requestee_id %>
+</p>
+
+<p>
+  <strong>Granted:</strong>
+  <%= @manage_photo.granted %>
+</p>
+
+<%= link_to 'Edit', edit_manage_photo_path(@manage_photo) %> |
+<%= link_to 'Back', manage_photos_path %>

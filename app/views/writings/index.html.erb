@@ -17,7 +17,7 @@
       <tr>
         <td><%= writing.user_id %></td>
         <td><%= writing.headline %></td>
-        <td><%= writing.body %></td>
+        <td><%= writing.body.html_safe %></td>
         <td><%= link_to 'Show', writing %></td>
         <td><%= link_to 'Edit', edit_writing_path(writing) %></td>
         <td><%= link_to 'Destroy', writing, method: :delete, data: { confirm: 'Are you sure?' } %></td>

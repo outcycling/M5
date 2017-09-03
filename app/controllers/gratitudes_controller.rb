@@ -5,6 +5,8 @@ class GratitudesController < ApplicationController
   # GET /gratitudes.json
   def index
     @gratitudes = Gratitude.all
+    readings = Reading.all
+    @first_reading = readings.first
   end
 
   # GET /gratitudes/1
@@ -28,7 +30,10 @@ class GratitudesController < ApplicationController
 
     respond_to do |format|
       if @gratitude.save
-        format.html { redirect_to @gratitude, notice: 'Gratitude was successfully created.' }
+        
+        save_gratitudes
+          
+        format.html { redirect_to gratitudes_path, notice: 'Gratitude was successfully created.' }
         format.json { render :show, status: :created, location: @gratitude }
       else
         format.html { render :new }
@@ -70,5 +75,10 @@ class GratitudesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def gratitude_params
       params.require(:gratitude).permit(:user_id, :entry)
+    end
+    
+    def  save_gratitudes
+        Gratitude.create(user_id: current_user.id, entry: params[:entry2])  
+        Gratitude.create(user_id: current_user.id, entry: params[:entry3])  
     end
 end

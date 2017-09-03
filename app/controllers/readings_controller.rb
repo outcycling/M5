@@ -5,6 +5,7 @@ class ReadingsController < ApplicationController
   # GET /readings.json
   def index
     @readings = Reading.all
+    @todays_reading = @readings.select{|reading|reading.visible == true}.first
   end
 
   # GET /readings/1

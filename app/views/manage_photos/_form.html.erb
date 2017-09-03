@@ -1,0 +1,32 @@
+<%= form_for(manage_photo) do |f| %>
+  <% if manage_photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(manage_photo.errors.count, "error") %> prohibited this manage_photo from being saved:</h2>
+
+      <ul>
+      <% manage_photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :requestor_id %>
+    <%= f.number_field :requestor_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :requestee_id %>
+    <%= f.number_field :requestee_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :granted %>
+    <%= f.text_field :granted %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,6 @@
 class WritingsController < ApplicationController
   before_action :set_writing, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!    
 
   # GET /writings
   # GET /writings.json

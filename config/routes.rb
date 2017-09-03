@@ -1,7 +1,11 @@
 
   Rails.application.routes.draw do
       
-  root 'pages#home'  
+        root "pages#home"
+       
+      
+  resources :manage_photos
+   
   resources :gratitudes
   resources :writings
   resources :readings

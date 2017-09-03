@@ -14,11 +14,9 @@
   <tbody>
     <% @gratitudes.each do |gratitude| %>
       <tr>
-        <td><%= gratitude.user_id %></td>
+        <td><%= gratitude.created_at.strftime('%a, %b %d') %></td>
         <td><%= gratitude.entry %></td>
-        <td><%= link_to 'Show', gratitude %></td>
-        <td><%= link_to 'Edit', edit_gratitude_path(gratitude) %></td>
-        <td><%= link_to 'Destroy', gratitude, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -27,3 +25,5 @@
 <br>
 
 <%= link_to 'New Gratitude', new_gratitude_path %>
+
+<%= @first_reading.body.html_safe %>

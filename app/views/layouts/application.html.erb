@@ -9,50 +9,46 @@
   </head>
 
   <body>
-      <div>
-          <header><h1><%= Time.now.strftime('%a, %b %d') %> 
-              
-              
-               ------- My Morning Practice</h1>
-              
-            <nav>
-              <ul>
-                  <li><%= nav_link_to "Home", '/' %></li>
-                  <li> <%= nav_link_to "About", '#' %></li>
-                  
-                  <% unless current_user %>
-                      <li><%= nav_link_to "Sign Up", '/users/sign_up' %></li>
-                      <li><%= nav_link_to "log in", new_user_session_path %></li>
-                  <% end %>
-                  
-                  <% if current_user %>
 
-                        <li><%= nav_link_to "log out", destroy_user_session_path, :method => :delete %></li>
-                        <li><%= nav_link_to 'Edit Profile',edit_user_registration_path %></li>
-                                    
-                  <li><%= nav_link_to 'Upload Photo', new_picture_path %></li>
+        <header> 
+            <div class="top">
+                <span class="logo"> My Morning Practice    
+                <nav>
+                    <ul>
+                        <li> <%= nav_link_to "Home  ", '/' %></li>
+                        <li> <%= nav_link_to "Today's Truth  ", '/readings' %></li>
+                        <li> <%= nav_link_to "Writing  ", '/writings/new' %></li>
+                        <li> <%= nav_link_to "Gratitude", '/gratitudes' %></li>
+                        <li> <%= nav_link_to "Profiles", '/users' %></li>
+                    </ul>
+                </nav>
+                    </span>
+            </div>
+              
+            <div class="colorbar clearfix">
+                <nav>
+                    <ul class="clearfix">
+                      <% unless current_user %>
+                          <li><%= nav_link_to "Sign Up", '/users/sign_up' %></li>
+                          <li><%= nav_link_to "log in", new_user_session_path %></li>
+                      <% end %>
 
-                  
-                   <% end %>
-                
-                </ul>
-              </nav>
-        
-          
-          
-          
-          
-          
-          
-          </header>
-      
-      
-      
-      </div>
+                      <% if current_user %>
+                            <li>Hi, <%= current_user.name %></li>
+                            <li><%= nav_link_to "log out", destroy_user_session_path, :method => :get %></li>
+                            <li><%= nav_link_to 'Edit Profile',edit_user_registration_path %></li>             
+                            <li><%= nav_link_to 'Upload Photo', new_picture_path %></li>
+                       <% end %>
+                    </ul>
+                </nav>
+            </div>  
+        </header>
+   
       
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
       
     <%= yield %>
+      
   </body>
 </html>

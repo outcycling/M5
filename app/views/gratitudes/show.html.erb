@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= params.inspect %>
 <p>
   <strong>User:</strong>
   <%= @gratitude.user_id %>
@@ -9,6 +9,8 @@
   <strong>Entry:</strong>
   <%= @gratitude.entry %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_gratitude_path(@gratitude) %> |
 <%= link_to 'Back', gratitudes_path %>

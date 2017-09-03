@@ -1,8 +1,39 @@
 <p id="notice"><%= notice %></p>
 
+<div class="profile_page">
+    <div class="profile_list">
+        
+        <p>Search on Zip Code: </p>
+        <%= form_tag show_user_path, method: :get do %>
+        
+        <%= select_tag :zip, options_for_select([["all"],["10011"],["10012"],["10013"],["10014"]], params[:zip]) %>
+        
+        <%= submit_tag 'Enter' %>
+        
+        
+        <% end %>
+    
+    
+    
+        <% @users.each do |user| %>
+            <%= link_to user.name, show_user_path(user) %> <br><br>
+            <% unless user.pictures.empty? %>
+                <% picture = user.pictures & @mains %>
+                <% unless picture.empty? %>
+                    <%= image_tag picture.first.image.url(:thumb) %>
+                <% end %>
+            <% end %>
+        <br><br>
+        <% end %>
+    </div>
+    
+   <hr> 
+    
+<div class="profile_display">
+
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
+  <%= @user.name %><br />
 </p>
 
 <p>
@@ -15,17 +46,54 @@
   <%= @user.zip %>
 </p>
 
-<% @pictures.each do |picture| %>
+<p>MAIN:</p>
+<% unless @pictures.empty? %>
+    <% unless @main_photo.nil? %>
+        <%= image_tag @main_photo.image.url(:thumb) %>
+    <% end %>
+    <p>PUBLIC:</p>
+    <% @public_photos.each do |picture| %>
 
-    <p>
-      <strong>Photo:</strong>
-      <%= image_tag picture.image.url(:thumb) %>
-    </p>
+        <p>
+          <strong>Photo:</strong>
+          <%= image_tag picture.image.url(:thumb) %>
+        </p>
 
-    <p>
-      <strong>Desc:</strong>
-      <%= picture.desc %>
-    </p>
+        <p>
+          <strong>Desc:</strong>
+          <%= picture.desc %>
+        </p>
 
+    <% end %>
+    <p>PRIVATE PHOTOS:</p>
+
+
+
+
+    <% if @permitted %>
+
+        <% @private_photos.each do |picture| %>
+            <p>
+              <strong>Photo:</strong>
+              <%= image_tag picture.image.url(:thumb) %>
+            </p>
+
+            <p>
+              <strong>Desc:</strong>
+              <%= picture.desc %>
+            </p>
+        <% end %>
+
+    <% elsif @pending %>
+        <p>Your photo request is pending...</p>
+    <% else %>
+
+        <%= form_tag show_user_path(params[:id]), method: :get do %>
+            <p>Request to see private photos..</p>
+            <%= submit_tag 'Send Request' %>
+        <% end %>
+
+    <% end %>
 <% end %>
-
+</div>
+</div>

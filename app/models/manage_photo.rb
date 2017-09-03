@@ -1,0 +1,2 @@
+class ManagePhoto < ApplicationRecord
+end
