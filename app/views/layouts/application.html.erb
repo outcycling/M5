@@ -27,7 +27,7 @@
               
             <div class="colorbar clearfix">
                 <nav>
-                    <ul class="clearfix">
+                    <ul>
                       <% unless current_user %>
                           <li><%= nav_link_to "Sign Up", '/users/sign_up' %></li>
                           <li><%= nav_link_to "log in", new_user_session_path %></li>
@@ -44,11 +44,14 @@
             </div>  
         </header>
    
+    <section id="main_content">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <%= yield %>
+        
+    </section>
       
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-      
-    <%= yield %>
       
   </body>
 </html>

@@ -1,27 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div id="home_reading">
 
-<h1>Readings</h1>
+    <p id="notice"><%= notice %></p>
 
-
-
-Today's Reading is: <br/>
-
-<%= @todays_reading.body.html_safe %>
+    <h1>Readings</h1>
 
 
-<table>
- 
-  <tbody>
-    <% @readings.each do |reading| %>
-      <tr>
-        <td><%= reading.headline.html_safe %><br><%= reading.body.html_safe %></td>
-      
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-<%= link_to 'New Reading', new_reading_path %>
+    Today's Reading is: <br/>
 
+    <%= @todays_reading.body.html_safe %>
+
+
+    <table>
+
+      <tbody>
+        <% @readings.each do |reading| %>
+          <tr>
+            <td><%= reading.headline.html_safe %><br><%= reading.body.html_safe %></td>
+
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+    <%= link_to 'New Reading', new_reading_path %>
+
+</div>

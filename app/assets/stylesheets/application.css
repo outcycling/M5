@@ -20,6 +20,7 @@ body {
   font-size: 13px;
   line-height: 18px;
   margin: 0;
+  padding: 0;    
 }
 
 
@@ -53,6 +54,7 @@ li {
 .logo {
     line-height: 100px;
     font-size: 2.5rem;
+    margin-left: 33px;
 }
 
 .top nav ul {
@@ -70,7 +72,7 @@ li {
 
 .colorbar {
     background: #8162DB;
-    height: 100px;
+    height: 50px;
     color: white;
 }
 
@@ -80,17 +82,16 @@ li {
 
 .colorbar nav ul{
     margin: 0;
-    margin-right: -160px;
     padding: 0;
-    width: 500px;
     float: right;
-    line-height: 100px;
+    margin-right: -560px;
+    width: 380px;
 }
 
 .colorbar li {
     display: inline-block;
     float: right;
-    line-height: 100px;
+    line-height: 50px;
     margin-right: 17px;
 }
 
