@@ -1,33 +1,37 @@
+<div id="home_reading">
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Birth Date</th>
-      <th>Zip</th>
-      <th>User #</th>    
-      
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+ <div class="profile_page">
+        <div class="profile_list">
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to user.name, show_user_path(user) %></td>
-        <td><%= user.birthdate %></td>
-        <td><%= user.zip %></td>
-        <td><%= user.id %></td>  
-    
-          
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <p>Search on Zip Code: </p>
+            <%= form_tag users_path, method: :get do %>
 
-<br>
+            <%= select_tag :zip, options_for_select([["all"],["10011"],["10012"],["10013"],["10014"]], params[:zip]) %>
+
+            <%= submit_tag 'Enter' %><br><br>
+
+            <% end %>
+         </div>
+            <hr>
 
 
+            <div id="user_images" class="clearfix">
+                <% @users.each do |user| %>
+                    <div id="each_image">
+                        <%= link_to user.name, show_user_path(user) %> <br><br>
+                        <% unless user.pictures.empty? %>
+                            <% picture = user.pictures & @mains %>
+                            <% unless picture.empty? %>
+                                <%= image_tag picture.first.image.url(:medium) %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+
+</div>
+
+</div>

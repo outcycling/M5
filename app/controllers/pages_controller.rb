@@ -9,13 +9,9 @@ class PagesController < ApplicationController
     
   def users
       @users = User.all
-  end
-    
-  def show
-      @users = User.all
       @images = Picture.all
       @mains = @images.select{ |i| i.main == true }
-            
+      
       if params[:commit]=="Enter"
         if params[:zip]=="all"    
             @users
@@ -23,8 +19,12 @@ class PagesController < ApplicationController
             @users = User.where('zip = ?', params[:zip])
         end
       end
-      
-      
+  end
+    
+  def show
+      @users = User.all
+      @images = Picture.all
+      @mains = @images.select{ |i| i.main == true }
       
       @user = User.find(params[:id])
       

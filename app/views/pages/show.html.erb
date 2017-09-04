@@ -2,36 +2,7 @@
     <p id="notice"><%= notice %></p>
 
     <div class="profile_page">
-        <div class="profile_list">
-
-            <p>Search on Zip Code: </p>
-            <%= form_tag show_user_path, method: :get do %>
-
-            <%= select_tag :zip, options_for_select([["all"],["10011"],["10012"],["10013"],["10014"]], params[:zip]) %>
-
-            <%= submit_tag 'Enter' %><br><br>
-
-
-            <% end %>
-
-
-            <div id="user_images" class="clearfix">
-                <% @users.each do |user| %>
-                    <div id="each_image">
-                        <%= link_to user.name, show_user_path(user) %> <br><br>
-                        <% unless user.pictures.empty? %>
-                            <% picture = user.pictures & @mains %>
-                            <% unless picture.empty? %>
-                                <%= image_tag picture.first.image.url(:thumb) %>
-                            <% end %>
-                        <% end %>
-                    </div>
-                <% end %>
-            </div>
-
-        </div>
-
-       <hr> 
+       
 
     <div class="profile_display">
 
@@ -40,7 +11,13 @@
       <%= @user.name %><br />
     </p>
 
-    <p>
+    <% unless @pictures.empty? %>
+        <% unless @main_photo.nil? %>
+            <%= image_tag @main_photo.image.url(:medium) %>
+        <% end %>
+
+        
+        <p>
       <strong>Birth Date:</strong>
       <%= @user.birthdate %>
     </p>
@@ -49,18 +26,13 @@
       <strong>Zip:</strong>
       <%= @user.zip %>
     </p>
-
-    <p>MAIN:</p>
-    <% unless @pictures.empty? %>
-        <% unless @main_photo.nil? %>
-            <%= image_tag @main_photo.image.url(:thumb) %>
-        <% end %>
-        <p>PUBLIC:</p>
+        
+        <hr>
         <% @public_photos.each do |picture| %>
 
             <p>
-              <strong>Photo:</strong>
-              <%= image_tag picture.image.url(:thumb) %>
+              
+              <%= image_tag picture.image.url(:medium) %>
             </p>
 
             <p>
@@ -79,7 +51,7 @@
             <% @private_photos.each do |picture| %>
                 <p>
                   <strong>Photo:</strong>
-                  <%= image_tag picture.image.url(:thumb) %>
+                  <%= image_tag picture.image.url(:medium) %>
                 </p>
 
                 <p>
@@ -100,5 +72,32 @@
         <% end %>
     <% end %>
     </div>
+        
+        <hr><br><hr>
+        
+      <div class="profile_results_list">
+
+            <div id="user_images" class="clearfix">
+                <% @users.each do |user| %>
+                    <% picture = user.pictures & @mains %>
+                        <% unless picture.empty? %>
+                            <div id="each_image_result">
+                                <%= link_to user.name, show_user_path(user) %> <br>
+                                <% unless user.pictures.empty? %>
+                            
+                                    <%= link_to (image_tag picture.first.image.url(:thumb)), show_user_path(user) %>
+                                <% end %><br><br>
+                            </div>
+                        <% end %>
+                    
+                <% end %>
+            </div>
+
+        </div>
+
+       <hr>    
+        
+        
+        
 </div>
 </div>
