@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div id="home_reading">
 
-<h1>Gratitudes</h1>
+    <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Entry</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <h1>Gratitudes</h1>
 
-  <tbody>
-    <% @gratitudes.each do |gratitude| %>
-      <tr>
-        <td><%= gratitude.created_at.strftime('%a, %b %d') %></td>
-        <td><%= gratitude.entry %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Entry</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% @gratitudes.each do |gratitude| %>
+          <tr>
+            <td><%= gratitude.created_at.strftime('%a, %b %d') %></td>
+            <td><%= gratitude.entry %></td>
 
-<%= link_to 'New Gratitude', new_gratitude_path %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= @first_reading.body.html_safe %>
+    <br>
+
+    <%= link_to 'New Gratitude', new_gratitude_path %>
+
+    <%= @first_reading.body.html_safe %>
+    
+</div>
