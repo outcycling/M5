@@ -2,15 +2,16 @@
 
     <p id="notice"><%= notice %></p>
 
-    <h1>Readings</h1>
+    <h1>Today's Truth:</h1>
 
 
 
-    Today's Reading is: <br/>
+     <br/>
 
     <%= @todays_reading.body.html_safe %>
 
 
+<!--
     <table>
 
       <tbody>
@@ -23,6 +24,7 @@
         <% end %>
       </tbody>
     </table>
+-->
 
     <br>
     <%= link_to 'New Reading', new_reading_path %>
