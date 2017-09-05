@@ -31,7 +31,7 @@ class PagesController < ApplicationController
       if params[:commit]=="Send Request"
           ManagePhoto.create('requestor_id': current_user.id, 'requestee_id': params[:id], 'granted': 'pending')
           email = @user.email
-          name = @user.name
+          name = current_user.name
           id = current_user.id
           UserMailer.photo_access(email,name,id).deliver_now
       end
