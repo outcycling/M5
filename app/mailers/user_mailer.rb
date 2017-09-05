@@ -1,4 +1,6 @@
 class UserMailer < ApplicationMailer
+    
+    default from: "info@outcycling.org"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -41,6 +43,6 @@ class UserMailer < ApplicationMailer
   def photo_access(requestor_email, name, requestor_id)
     @name = name
     @requestor_id = requestor_id
-    mail to: requestor_email
+    mail to: requestor_email, subject: "Photo access request"
   end
 end
