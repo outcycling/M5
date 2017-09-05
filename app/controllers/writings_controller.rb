@@ -5,7 +5,7 @@ class WritingsController < ApplicationController
   # GET /writings
   # GET /writings.json
   def index
-    @writings = Writing.all
+    @writings = Writing.where('user_id = ?', current_user.id)
   end
 
   # GET /writings/1
