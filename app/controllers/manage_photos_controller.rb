@@ -4,7 +4,7 @@ class ManagePhotosController < ApplicationController
   # GET /manage_photos
   # GET /manage_photos.json
   def index
-    @manage_photos = ManagePhoto.all
+    @manage_photos = ManagePhoto.where('requestee_id = ?', current_user.id)
   end
 
   # GET /manage_photos/1

@@ -1,12 +1,13 @@
-<p id="notice"><%= notice %></p>
+  
+  </div><p id="notice"><%= notice %></p>
 
 <h1>Manage Photos</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Name</th>    
       <th>Requestor</th>
-      <th>Requestee</th>
       <th>Granted</th>
       <th colspan="3"></th>
     </tr>
@@ -15,8 +16,8 @@
   <tbody>
     <% @manage_photos.each do |manage_photo| %>
       <tr>
-        <td><%= manage_photo.requestor_id %></td>
-        <td><%= manage_photo.requestee_id %></td>
+        <td><%= manage_photo.user.name %></td>  
+        <td><%= image_tag manage_photo.user.pictures.first.image.url(:thumb) %></td>
         <td><%= manage_photo.granted %></td>
         <td><%= link_to 'Show', manage_photo %></td>
         <td><%= link_to 'Edit', edit_manage_photo_path(manage_photo) %></td>

@@ -1,2 +1,3 @@
 class ManagePhoto < ApplicationRecord
+    belongs_to :user
 end

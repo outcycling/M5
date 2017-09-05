@@ -29,11 +29,15 @@ class PagesController < ApplicationController
       @user = User.find(params[:id])
       
       if params[:commit]=="Send Request"
-          ManagePhoto.create('requestor_id': current_user.id, 'requestee_id': params[:id], 'granted': 'pending')
-          email = @user.email
-          name = current_user.name
-          id = current_user.id
-          UserMailer.photo_access(email,name,id).deliver_now
+#          m = ManagePhoto.where('requestor_id = ?, requestee_id = ?', current_user.id, params[:id].to_i)
+#          
+#          if m.nil?
+            ManagePhoto.create('requestor_id': current_user.id, 'requestee_id': params[:id].to_i, 'granted': 'pending', 'user_id': current_user.id)
+              email = @user.email
+              name = current_user.name
+              id = current_user.id
+              UserMailer.photo_access(email,name,id).deliver_now
+#          end 
       end
       
       @pictures = @user.pictures
