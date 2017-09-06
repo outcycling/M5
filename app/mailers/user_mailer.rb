@@ -7,11 +7,11 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.signup.subject
   #
-  def signup
+  def signup(email)
     
     @greeting = "Hi"
 
-    mail to: "to@example.org"
+    mail to: email
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
