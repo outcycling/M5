@@ -7,14 +7,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-    POST /resource
-    def create
-      super
-        
-#        debugger
-#    
-#        UserMailer.signup(email).deliver_now
-    end
+#    POST /resource
+#    def create
+#      super
+#    end
 
   # GET /resource/edit
   # def edit
