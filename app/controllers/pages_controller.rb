@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-       
+       before_action :authenticate_user!, only:[:show, :users]
     
   def home
       @gratitudes = Gratitude.all.reverse
@@ -53,14 +53,14 @@ class PagesController < ApplicationController
     private
     
     def permitted?
-        
+                
         granted = ManagePhoto.where('requestor_id = ? and requestee_id = ? and granted = ?', current_user.id, params[:id], "yes" )
         
         (current_user.id == params[:id].to_i) || !(granted.empty?)
     end
     
     def pending?
-        
+                
         pending = ManagePhoto.where('requestor_id = ? and requestee_id = ? and granted = ?', current_user.id, params[:id], "pending" )
         !(pending.empty?)
         

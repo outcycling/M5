@@ -5,7 +5,7 @@
        <H1>Today - People are grateful for:</H1> 
         
        <% @gratitudes.each do |gratitude| %>
-          <%= gratitude.entry %> - 
+          <%= link_to gratitude.entry, "/users/#{gratitude.user_id}" %> - 
         <% end %>
           
        <br><br>
