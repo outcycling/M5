@@ -37,6 +37,7 @@
                             <li><%= nav_link_to "log out", destroy_user_session_path, :method => :get %></li>
                             <li><%= nav_link_to 'Edit Profile',edit_user_registration_path %></li>             
                             <li><%= nav_link_to 'Upload Photo', new_picture_path %></li>
+                            <li><%= nav_link_to 'Manage Photos', pictures_path %></li>
                        <% end %>
                     </ul>
                 </nav>
