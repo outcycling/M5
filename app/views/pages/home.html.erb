@@ -1,9 +1,18 @@
 <div id="home_image">
     <div id="home_reading">
-        There is One Power, One Being, One Knowingness, One Energy, and the name we give It (God, Spirit, The Universe, Oneness, Tao, Yahweh, Allah, Jehovah, Brahma, Higher Power, Higher Consciousness, or whatever other name we choose) does not matter.
-        <br><br>
-        It is everything, and It is everywhere.
-            <br><br>
+        
+        
+       <H1>Today - People are grateful for:</H1> 
+        
+       <% @gratitudes.each do |gratitude| %>
+          <%= gratitude.entry %> - 
+        <% end %>
+          
+       <br><br>
+        
+        
+        
+    
 
         Take a moment and close your eyes. See yourself floating in a great sea of light.
          <br><br>
