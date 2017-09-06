@@ -33,7 +33,7 @@ class GratitudesController < ApplicationController
         
         save_gratitudes
           
-        format.html { redirect_to gratitudes_path, notice: 'Gratitude was successfully created.' }
+        format.html { redirect_to '/' }
         format.json { render :show, status: :created, location: @gratitude }
       else
         format.html { render :new }
@@ -78,7 +78,12 @@ class GratitudesController < ApplicationController
     end
     
     def  save_gratitudes
-        Gratitude.create(user_id: current_user.id, entry: params[:entry2])  
-        Gratitude.create(user_id: current_user.id, entry: params[:entry3])  
+        unless params[:entry2].strip == ""
+            Gratitude.create(user_id: current_user.id, entry: params[:entry2])  
+        end
+        
+        unless params[:entry3].strip == ""
+            Gratitude.create(user_id: current_user.id, entry: params[:entry3])  
+        end
     end
 end

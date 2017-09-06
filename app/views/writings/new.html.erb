@@ -2,8 +2,12 @@
 
 <div id="home_reading">
     
+   <h1> Reading:  <%= @todays_reading.headline.html_safe %> </h1>
+    
+    <%= @todays_reading.body.html_safe %>
+    
 
-    <h1>New Writing</h1>
+    <h1>Writing - 5 mins off the top of your head: </h1>
 
     <%= render 'form', writing: @writing %>
 

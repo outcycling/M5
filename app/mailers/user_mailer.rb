@@ -8,6 +8,7 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.signup.subject
   #
   def signup
+    
     @greeting = "Hi"
 
     mail to: "to@example.org"

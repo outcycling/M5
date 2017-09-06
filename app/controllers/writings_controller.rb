@@ -6,6 +6,8 @@ class WritingsController < ApplicationController
   # GET /writings.json
   def index
     @writings = Writing.where('user_id = ?', current_user.id)
+      
+   
   end
 
   # GET /writings/1
@@ -16,6 +18,9 @@ class WritingsController < ApplicationController
   # GET /writings/new
   def new
     @writing = Writing.new
+      
+     @readings = Reading.all
+    @todays_reading = @readings.select{|reading|reading.visible == true}.first
   end
 
   # GET /writings/1/edit

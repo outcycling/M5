@@ -2,7 +2,7 @@ class PagesController < ApplicationController
        
     
   def home
-      @gratitudes = Gratitude.all
+      @gratitudes = Gratitude.all.reverse
       @readings = Reading.all
       @first_reading = @readings.first
   end
