@@ -14,6 +14,7 @@
         sessions: 'users/sessions'
       }
   get 'pages/home'
+  get 'meditate' => 'pages#meditate', as: :meditate
   get '/users' => 'pages#users', as: :users
   get 'users/:id' => 'pages#show', as: :show_user      
     end

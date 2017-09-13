@@ -1,0 +1,27 @@
+
+<div id="home_image">
+<div id="meditate_page">
+  <div id="meditate_text">
+    <div id="meditate">MEDITATE:</div>
+    
+    <div id="meditate_sentence"> Now it's time to meditate - Pick your time and just sit quietly -
+
+        -- (let the God-like place inside talk to you!) 
+    </div>
+  </div>
+<br>
+    <%= button_tag "Time", id:"timeLeft" do %>
+  <% end %>
+
+
+  <span class="timer">M: <%= text_field_tag "Minutes", "5".to_i %></span>
+
+  <span class="timer">S: <%= text_field_tag "Seconds", "0".to_i %></span>
+
+  <br>
+  <%= button_tag "Start", id:"start_timer" %>
+
+  <%= button_tag "Reset", id:"reset_timer" %>
+    
+</div>
+</div>

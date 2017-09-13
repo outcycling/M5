@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #home_image {
-    height: 1000px;
-    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),image-url("man1.jpg");
+    height: 800px;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),image-url("sun_wtc.jpg");
     background-size:cover;
-    background-position: center center; 
-    margin-top: -11px;
+    background-position: center 10%; 
+    margin-top: -13px;
 }
 
 #home_reading {
@@ -25,4 +25,76 @@
     height: 370px;
     margin-bottom: 20px;
 }
+
+#meditate_page {
+    height: 800px;
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),image-url("sun_wtc.jpg");
+    background-size:cover;
+    background-position: center 10%; 
+    margin-top: -13px;
+    position: relative;
+}
+
+#meditate_text {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+}
+
+#meditate {
+    font-size: 2rem;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+#meditate_sentence {
+    font-size: 1rem; 
+    width: 350px;
+    height: 100px;
+    margin: 0 0 0 20px;
+    position: absolute;
+    top: 29px;
+    left: 220px;
+}
+
+#timeLeft{
+    width: 70px;
+    height: 32px;
+    margin: 10px 0 7px 16px;
+    font-size: 1.3rem;
+    position: absolute;
+    top: 150px;
+    left: 20px;
+}
+
+#start_timer {
+    width: 53px;
+    height: 21px;
+    font-size: .8rem;
+    position: absolute;
+    top: 170px;
+    left: 120px;
+}
+
+#reset_timer {
+    width: 53px;
+    height: 21px;
+    font-size: .8rem;
+    position: absolute;
+    top: 170px;
+    left: 180px;
+}
+
+.timer {
+    margin-left: 9px;
+}
+
+#Minutes,#Seconds {
+    width: 35px;
+    height: 32px;
+    font-size: 1.3rem;
+    margin: 10px 0px 7px 1px;
+}
+
 

@@ -49,6 +49,10 @@ class PagesController < ApplicationController
       @pending = pending?
   end
     
+   def meditate
+       
+   end
+    
     
     private
     
